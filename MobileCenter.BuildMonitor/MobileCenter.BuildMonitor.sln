@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileCenter.BuildMonitor.TizenApp.Tizen", "MobileCenter.BuildMonitor.TizenApp\MobileCenter.BuildMonitor.TizenApp.Tizen\MobileCenter.BuildMonitor.TizenApp.Tizen.csproj", "{B15A40B1-5B17-4FA6-A80E-BBF9F7D577E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileCenterSdk", "MobileCenterSdk\MobileCenterSdk.csproj", "{00EDC313-C540-45A2-93E5-8D05C2402932}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B15A40B1-5B17-4FA6-A80E-BBF9F7D577E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B15A40B1-5B17-4FA6-A80E-BBF9F7D577E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B15A40B1-5B17-4FA6-A80E-BBF9F7D577E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00EDC313-C540-45A2-93E5-8D05C2402932}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00EDC313-C540-45A2-93E5-8D05C2402932}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00EDC313-C540-45A2-93E5-8D05C2402932}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00EDC313-C540-45A2-93E5-8D05C2402932}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
