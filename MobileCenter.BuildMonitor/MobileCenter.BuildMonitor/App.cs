@@ -1,3 +1,4 @@
+using MobileCenter.BuildMonitor.ViewModels;
 using MobileCenter.BuildMonitor.Pages;
 using System;
 using System.Collections.Generic;
