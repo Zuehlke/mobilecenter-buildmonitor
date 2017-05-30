@@ -1,3 +1,4 @@
+using MobileCenter.BuildMonitor.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,21 +12,7 @@ namespace MobileCenter.BuildMonitor
     {
         public App()
         {
-            // The root page of your application
-            MainPage = new ContentPage
-            {
-                BackgroundColor = Color.White,
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
+            MainPage = new AppListPage();
         }
 
         protected override void OnStart()
