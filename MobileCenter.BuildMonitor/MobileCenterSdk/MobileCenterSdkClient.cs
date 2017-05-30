@@ -19,6 +19,9 @@ namespace MobileCenterSdk
         {
             Credentials = credentials;
         }
+        public MobileCenterSdkClient()
+        {
+        }
         public AccountService AccountService
         {
             get { return _accountService ?? (_accountService = new AccountService(this)); }

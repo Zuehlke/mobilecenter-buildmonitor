@@ -40,10 +40,19 @@
   <ItemGroup>
     <Compile Include="Mvvm\Command.cs" />
     <Compile Include="Mvvm\ViewModelBase.cs" />
-    <Compile Include="MobileCenter.BuildMonitor.TizenApp.cs" />
+    <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceLocator.cs" />
+    <Compile Include="Services\MobileCenterService.cs" />
+    <Compile Include="Services\SettingsService.cs" />
     <Compile Include="ViewModels\AppListViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MobileCenterSdk\MobileCenterSdk.csproj">
+      <Project>{00edc313-c540-45a2-93e5-8d05c2402932}</Project>
+      <Name>MobileCenterSdk</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
