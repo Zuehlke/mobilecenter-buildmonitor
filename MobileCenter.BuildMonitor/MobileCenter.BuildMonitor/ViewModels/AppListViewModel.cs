@@ -3,6 +3,7 @@ using MobileCenterSdk;
 using MobileCenterSdk.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -14,11 +15,11 @@ namespace MobileCenter.BuildMonitor.ViewModels
     public class AppListViewModel : ViewModelBase
     {
         // Fields
-        private List<McApp> _apps;
+        private ObservableCollection<McApp> _apps = new ObservableCollection<McApp>();
         private ICommand _refreshCommand;
 
         // Properties
-        public List<McApp> Apps
+        public ObservableCollection<McApp> Apps
         {
             get => _apps;
             set
@@ -43,14 +44,15 @@ namespace MobileCenter.BuildMonitor.ViewModels
 
             try
             {
-                
-                //var test = await client.AccountService.GetAppsAsync();
+                await ServiceLocator.MobileCenterService.LoginAsync("xpnet", "XPnet2017");
+                var test = await ServiceLocator.MobileCenterService.MobileCenterClient.AccountService.GetAppsAsync();
 
-                //Apps = test;
+                Apps.Clear();
+                test.ForEach(Apps.Add);
             }
             catch (Exception e)
             {
-                Console.WriteLine("TEST: " + e.Message);
+                Console.WriteLine($"Loading apps failed: {e.Message}");
             }
 
             IsDataLoading = false;

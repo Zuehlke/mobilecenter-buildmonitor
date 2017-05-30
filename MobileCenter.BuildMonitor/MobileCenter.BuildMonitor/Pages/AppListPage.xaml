@@ -4,8 +4,14 @@
              x:Class="MobileCenter.BuildMonitor.Pages.AppListPage">
     <StackLayout>
         <Button Command="{Binding RefreshCommand}" Text="Refresh" />
-        <ListView ItemsSource="{Binding Apps}">
-
+        <ListView x:Name="MyListview" ItemsSource="{Binding Apps, Mode=OneWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Button Text="{Binding Name}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
 </ContentPage>
