@@ -1,14 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns="http://tizen.org/ns/packages" api-version="3.0" package="MobileCenter.BuildMonitor.TizenApp.Tizen" version="1.0.0">
-	<profile name="common" />
-	<ui-application appid="org.tizen.example.MobileCenter.BuildMonitor.TizenApp.Tizen"
-					exec="MobileCenter.BuildMonitor.TizenApp.Tizen.exe"
-					type="dotnet"
-					multiple="false"
-					taskmanage="true"
-					nodisplay="false"
-					launch_mode="single">
-  <label>MobileCenter.BuildMonitor.TizenApp.Tizen</label>
-	<icon>MobileCenter.BuildMonitor.TizenApp.Tizen.png</icon>
-	</ui-application>
+<manifest package="MobileCenter.BuildMonitor.TizenApp.Tizen" version="1.0.0" api-version="3.0" xmlns="http://tizen.org/ns/packages">
+  <profile name="common" />
+  <ui-application appid="org.tizen.example.MobileCenter.BuildMonitor.TizenApp.Tizen" exec="MobileCenter.BuildMonitor.TizenApp.Tizen.exe" multiple="false" nodisplay="false" taskmanage="true" splash-screen-display="true" type="dotnet" launch_mode="single">
+    <label>MobileCenter.BuildMonitor.TizenApp.Tizen</label>
+    <icon>MobileCenter.BuildMonitor.TizenApp.Tizen.png</icon>
+  </ui-application>
+  <shortcut-list />
+  <privileges>
+    <privilege>http://tizen.org/privilege/internet</privilege>
+  </privileges>
 </manifest>
