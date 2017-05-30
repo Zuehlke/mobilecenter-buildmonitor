@@ -34,7 +34,6 @@ namespace MobileCenter.BuildMonitor.Services
                 });
             ServiceLocator.SettingsService.Token = tokenInfo.Token;
             MobileCenterClient.Credentials = new MobileCenterCredentials(tokenInfo.Token);
-
         }
     }
 }

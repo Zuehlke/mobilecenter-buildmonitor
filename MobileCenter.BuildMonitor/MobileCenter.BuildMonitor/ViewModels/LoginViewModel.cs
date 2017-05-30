@@ -21,7 +21,9 @@ namespace MobileCenter.BuildMonitor.ViewModels
             {
                 try
                 {
+                    IsDataLoading = true;
                     await ServiceLocator.MobileCenterService.LoginAsync(Username, Password);
+                    IsDataLoading = false;
                 }catch (MobileCenterException mce)
                 {
                     //To-Do: Implement exception handling
