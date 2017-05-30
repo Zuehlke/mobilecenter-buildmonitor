@@ -5,7 +5,7 @@ using System.Text;
 
 using Xamarin.Forms;
 
-namespace MobileCenter.BuildMonitor.TizenApp
+namespace MobileCenter.BuildMonitor
 {
     public class App : Application
     {
@@ -14,6 +14,7 @@ namespace MobileCenter.BuildMonitor.TizenApp
             // The root page of your application
             MainPage = new ContentPage
             {
+                BackgroundColor = Color.White,
                 Content = new StackLayout
                 {
                     VerticalOptions = LayoutOptions.Center,

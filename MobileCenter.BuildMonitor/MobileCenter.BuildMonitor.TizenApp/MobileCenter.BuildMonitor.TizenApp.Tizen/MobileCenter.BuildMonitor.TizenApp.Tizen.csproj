@@ -48,7 +48,6 @@
     <None Include="shared\res\MobileCenter.BuildMonitor.TizenApp.Tizen.png" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MobileCenter.BuildMonitor.TizenApp.cs" />
     <Compile Include="MobileCenter.BuildMonitor.TizenApp.Tizen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
