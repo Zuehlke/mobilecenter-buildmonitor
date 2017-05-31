@@ -1,4 +1,5 @@
 ﻿using MobileCenter.BuildMonitor.Mvvm;
+using MobileCenter.BuildMonitor.Pages;
 using MobileCenterSdk.Utils;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ namespace MobileCenter.BuildMonitor.ViewModels
                 {
                     IsDataLoading = true;
                     await ServiceLocator.MobileCenterService.LoginAsync(Username, Password);
+                    await App.Current.MainPage.Navigation.PushAsync(new AppListPage());
+                    App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack.First());
                     IsDataLoading = false;
                 }catch (MobileCenterException mce)
                 {

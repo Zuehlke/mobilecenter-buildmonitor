@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileCenter.BuildMonitor.Pages.LoginPage">
+    <StackLayout Orientation="Vertical">
+        <Entry Placeholder="Username"/>
+        <Entry Placeholder="Password"/>
+        <Button Text="Login" Command="{Binding LoginCommand}"/>
+        <ProgressBar IsEnabled="True" IsVisible="{Binding IsDataLoading}"/>
+    </StackLayout>
+</ContentPage>
