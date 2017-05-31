@@ -51,6 +51,7 @@
     <Compile Include="ServiceLocator.cs" />
     <Compile Include="Services\MobileCenterService.cs" />
     <Compile Include="Services\SettingsService.cs" />
+    <Compile Include="TestCredentials.cs" />
     <Compile Include="ViewModels\AppListViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
   </ItemGroup>

@@ -18,5 +18,11 @@ namespace MobileCenter.BuildMonitor.Pages
             InitializeComponent();
             BindingContext = new LoginViewModel();
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Username.Text = TestCredentials.Username;
+            Password.Text = TestCredentials.Password;
+        }
     }
 }
