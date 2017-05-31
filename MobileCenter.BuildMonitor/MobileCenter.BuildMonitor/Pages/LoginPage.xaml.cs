@@ -11,19 +11,18 @@ using Xamarin.Forms.Xaml;
 namespace MobileCenter.BuildMonitor.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AppListPage : ContentPage
+    public partial class LoginPage : ContentPage
     {
-        private AppListViewModel ViewModel { get; set; }
-
-        public AppListPage()
+        public LoginPage()
         {
             InitializeComponent();
-            BindingContext = ViewModel = ServiceLocator.AppListViewModel;
+            BindingContext = new LoginViewModel();
         }
 
-        private async void MyListview_ItemTapped(object sender, ItemTappedEventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new BranchListPage());
+            Username.Text = TestCredentials.Username;
+            Password.Text = TestCredentials.Password;
         }
     }
 }
