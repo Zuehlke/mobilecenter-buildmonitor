@@ -44,7 +44,9 @@ dlldata.c
 
 # .NET Core
 project.lock.json
+*project.lock.json
 project.fragment.lock.json
+*project.fragment.lock.json
 artifacts/
 **/Properties/launchSettings.json
 
@@ -286,3 +288,5 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+/MobileCenter.BuildMonitor/MobileCenter.BuildMonitor.TizenApp/MobileCenter.BuildMonitor.TizenApp.Tizen/MobileCenter.BuildMonitor.TizenApp.Tizen.project.lock.json
+/MobileCenter.BuildMonitor/MobileCenter.BuildMonitor.TizenApp/MobileCenter.BuildMonitor.TizenApp.Tizen/MobileCenter.BuildMonitor.TizenApp.Tizen.project.lock.json
