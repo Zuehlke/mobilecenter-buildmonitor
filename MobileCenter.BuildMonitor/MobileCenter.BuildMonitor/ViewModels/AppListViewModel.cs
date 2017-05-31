@@ -1,4 +1,5 @@
 ﻿using MobileCenter.BuildMonitor.Mvvm;
+using MobileCenter.BuildMonitor.Services;
 using MobileCenterSdk;
 using MobileCenterSdk.Models;
 using System;
@@ -14,9 +15,18 @@ namespace MobileCenter.BuildMonitor.ViewModels
 {
     public class AppListViewModel : ViewModelBase
     {
+        // Dependencies
+        private readonly MobileCenterService _mobileCenterService;
+
         // Fields
         private ObservableCollection<McApp> _apps = new ObservableCollection<McApp>();
         private ICommand _refreshCommand;
+
+        // Constructor
+        public AppListViewModel(MobileCenterService mobileCenterService)
+        {
+            _mobileCenterService = mobileCenterService;
+        }
 
         // Properties
         public ObservableCollection<McApp> Apps
@@ -37,15 +47,12 @@ namespace MobileCenter.BuildMonitor.ViewModels
         // Interactions
         public async Task RefreshAsync()
         {
-            Console.WriteLine("TEST CL");
-
             if (IsDataLoading) return;
             IsDataLoading = true;
 
             try
             {
-                await ServiceLocator.MobileCenterService.LoginAsync("xpnet", "XPnet2017");
-                var test = await ServiceLocator.MobileCenterService.MobileCenterClient.AccountService.GetAppsAsync();
+                var test = await _mobileCenterService.MobileCenterClient.AccountService.GetAppsAsync();
 
                 Apps.Clear();
                 test.ForEach(Apps.Add);
