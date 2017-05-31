@@ -13,7 +13,7 @@ namespace MobileCenter.BuildMonitor
     {
         public App()
         {
-            MainPage = new AppListPage();
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()
