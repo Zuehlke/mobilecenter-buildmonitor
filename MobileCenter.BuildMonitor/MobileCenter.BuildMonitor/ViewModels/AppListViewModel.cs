@@ -52,10 +52,10 @@ namespace MobileCenter.BuildMonitor.ViewModels
 
             try
             {
-                var test = await _mobileCenterService.MobileCenterClient.AccountService.GetAppsAsync();
+                var downloadedApps = await _mobileCenterService.MobileCenterClient.AccountService.GetAppsAsync();
 
                 Apps.Clear();
-                test.ForEach(Apps.Add);
+                downloadedApps.ForEach(Apps.Add);
             }
             catch (Exception e)
             {

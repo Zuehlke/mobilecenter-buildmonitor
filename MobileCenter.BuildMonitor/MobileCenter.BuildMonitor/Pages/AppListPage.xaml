@@ -4,11 +4,34 @@
              x:Class="MobileCenter.BuildMonitor.Pages.AppListPage">
     <StackLayout>
         <Button Command="{Binding RefreshCommand}" Text="Refresh" />
+        <Label IsVisible="{Binding IsDataLoading}" Text="Loading Apps..." />
         <ListView x:Name="MyListview" ItemsSource="{Binding Apps}" ItemTapped="MyListview_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Button Text="{Binding Name}" />
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding DisplayName}" FontSize="Large" />
+                            
+                            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                <Label Text="Platform: " />
+                                <Label Text="{Binding Os}" />
+                            </StackLayout>
+                            
+                            <StackLayout Grid.Column="1" Grid.ColumnSpan="2"
+                                         Orientation="Horizontal" VerticalOptions="Center">
+                                <Label Text="Owner: " VerticalOptions="End" />
+                                <Label Text="{Binding Owner.Name}" VerticalOptions="End" />
+                            </StackLayout>
+                        </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
