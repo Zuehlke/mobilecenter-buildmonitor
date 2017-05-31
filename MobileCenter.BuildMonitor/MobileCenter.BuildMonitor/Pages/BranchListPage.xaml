@@ -2,5 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileCenter.BuildMonitor.Pages.BranchListPage">
-    <Label Text="Hello! :)" />
+    <StackLayout>
+        <Button Command="{Binding RefreshCommand}" Text="Refresh" />
+        <ListView x:Name="MyListview" ItemsSource="{Binding BranchStatuses}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding Branch.Name}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>
