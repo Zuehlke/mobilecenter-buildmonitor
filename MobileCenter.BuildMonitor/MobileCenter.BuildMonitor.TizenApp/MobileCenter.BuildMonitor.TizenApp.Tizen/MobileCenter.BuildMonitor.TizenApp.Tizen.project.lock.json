@@ -8360,7 +8360,7 @@
       ]
     },
     "Microsoft.NETCore.App/1.1.2": {
-      "sha512": "TUPK1xhef7WcbsIkhfZOz6J7DrG5aebjVRBswPfHe90eDhfnlWHaLiI1OtMB2O78bf5d37WO6ge+9nel2keKkA==",
+      "sha512": "fcN0Ob6rjY7Zu0770cA5l9wRJvj7+ltJPPdryUidejkkhao+y2AYrtezBTlP9nCSFXLmYR9BtaknORT17x8reA==",
       "type": "package",
       "path": "microsoft.netcore.app/1.1.2",
       "files": [
@@ -14752,20 +14752,20 @@
     ".NETCoreApp,Version=v1.0": []
   },
   "packageFolders": {
-    "C:\\Users\\kabr\\.nuget\\packages\\": {}
+    "C:\\Users\\Casper Lans\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Users\\kabr\\Source\\Repos\\MobileCenter\\MobileCenter.BuildMonitor\\MobileCenter.BuildMonitor.TizenApp\\MobileCenter.BuildMonitor.TizenApp.Tizen\\MobileCenter.BuildMonitor.TizenApp.Tizen.csproj",
+      "projectUniqueName": "C:\\Users\\Casper Lans\\Source\\Repos\\mobilecenter-buildmonitor\\MobileCenter.BuildMonitor\\MobileCenter.BuildMonitor.TizenApp\\MobileCenter.BuildMonitor.TizenApp.Tizen\\MobileCenter.BuildMonitor.TizenApp.Tizen.csproj",
       "projectName": "MobileCenter.BuildMonitor.TizenApp.Tizen",
-      "projectPath": "C:\\Users\\kabr\\Source\\Repos\\MobileCenter\\MobileCenter.BuildMonitor\\MobileCenter.BuildMonitor.TizenApp\\MobileCenter.BuildMonitor.TizenApp.Tizen\\MobileCenter.BuildMonitor.TizenApp.Tizen.csproj",
-      "projectJsonPath": "C:\\Users\\kabr\\Source\\Repos\\MobileCenter\\MobileCenter.BuildMonitor\\MobileCenter.BuildMonitor.TizenApp\\MobileCenter.BuildMonitor.TizenApp.Tizen\\MobileCenter.BuildMonitor.TizenApp.Tizen.project.json",
+      "projectPath": "C:\\Users\\Casper Lans\\Source\\Repos\\mobilecenter-buildmonitor\\MobileCenter.BuildMonitor\\MobileCenter.BuildMonitor.TizenApp\\MobileCenter.BuildMonitor.TizenApp.Tizen\\MobileCenter.BuildMonitor.TizenApp.Tizen.csproj",
+      "projectJsonPath": "C:\\Users\\Casper Lans\\Source\\Repos\\mobilecenter-buildmonitor\\MobileCenter.BuildMonitor\\MobileCenter.BuildMonitor.TizenApp\\MobileCenter.BuildMonitor.TizenApp.Tizen\\MobileCenter.BuildMonitor.TizenApp.Tizen.project.json",
       "projectStyle": "ProjectJson",
       "frameworks": {
         "netcoreapp1.0": {
           "projectReferences": {
-            "C:\\Users\\kabr\\Source\\Repos\\MobileCenter\\MobileCenter.BuildMonitor\\MobileCenter.BuildMonitor\\MobileCenter.BuildMonitor.csproj": {
-              "projectPath": "C:\\Users\\kabr\\Source\\Repos\\MobileCenter\\MobileCenter.BuildMonitor\\MobileCenter.BuildMonitor\\MobileCenter.BuildMonitor.csproj"
+            "C:\\Users\\Casper Lans\\Source\\Repos\\mobilecenter-buildmonitor\\MobileCenter.BuildMonitor\\MobileCenter.BuildMonitor\\MobileCenter.BuildMonitor.csproj": {
+              "projectPath": "C:\\Users\\Casper Lans\\Source\\Repos\\mobilecenter-buildmonitor\\MobileCenter.BuildMonitor\\MobileCenter.BuildMonitor\\MobileCenter.BuildMonitor.csproj"
             }
           }
         }

@@ -49,6 +49,7 @@
     <Compile Include="Services\MobileCenterService.cs" />
     <Compile Include="Services\SettingsService.cs" />
     <Compile Include="ViewModels\AppListViewModel.cs" />
+    <Compile Include="ViewModels\BranchListViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
