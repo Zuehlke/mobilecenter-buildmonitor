@@ -14,6 +14,7 @@ namespace MobileCenter.BuildMonitor
         private static MobileCenterService _mobileCenterService;
         private static SettingsService _settingsService;
         private static AppListViewModel _appListViewModel;
+        
 
         public static MobileCenterService MobileCenterService
         {

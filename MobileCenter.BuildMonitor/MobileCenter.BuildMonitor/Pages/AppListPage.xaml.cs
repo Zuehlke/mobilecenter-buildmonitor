@@ -1,4 +1,5 @@
 ﻿using MobileCenter.BuildMonitor.ViewModels;
+using MobileCenterSdk.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,8 @@ namespace MobileCenter.BuildMonitor.Pages
 
         private async void MyListview_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            await Navigation.PushAsync(new BranchListPage());
+            var app = e.Item as McApp;
+            await Navigation.PushAsync(new BranchListPage(app));
         }
     }
 }

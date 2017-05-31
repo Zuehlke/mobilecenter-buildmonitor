@@ -13,17 +13,17 @@ namespace MobileCenter.BuildMonitor.ViewModels
     class BranchListViewModel : ViewModelBase
     {
         // Fields
-        private ObservableCollection<McBranchStatus> _branches = new ObservableCollection<McBranchStatus>();
+        private ObservableCollection<McBranchStatus> _branchStatuses = new ObservableCollection<McBranchStatus>();
         private ICommand _refreshCommand;
         private McApp _app;
 
         // Properties
-        public ObservableCollection<McBranchStatus> Branches
+        public ObservableCollection<McBranchStatus> BranchStatuses
         {
-            get => _branches;
+            get => _branchStatuses;
             set
             {
-                SetProperty(ref _branches, value);
+                SetProperty(ref _branchStatuses, value);
             }
         }
 
@@ -48,8 +48,8 @@ namespace MobileCenter.BuildMonitor.ViewModels
             {
                 var branches = await _app.GetBranchesAsync();
 
-                Branches.Clear();
-                branches.ForEach(Branches.Add);
+                BranchStatuses.Clear();
+                branches.ForEach(BranchStatuses.Add);
             }
             catch (Exception e)
             {

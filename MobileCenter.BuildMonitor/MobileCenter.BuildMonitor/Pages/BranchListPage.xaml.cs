@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MobileCenter.BuildMonitor.ViewModels;
+using MobileCenterSdk.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,12 @@ namespace MobileCenter.BuildMonitor.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BranchListPage : ContentPage
     {
-        public BranchListPage()
+        private BranchListViewModel ViewModel { get; set; }
+
+        public BranchListPage(McApp app)
         {
             InitializeComponent();
+            BindingContext = ViewModel = new BranchListViewModel(app);
         }
     }
 }
