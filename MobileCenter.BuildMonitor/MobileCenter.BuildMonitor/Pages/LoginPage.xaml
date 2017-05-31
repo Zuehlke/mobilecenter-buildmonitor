@@ -4,7 +4,7 @@
              x:Class="MobileCenter.BuildMonitor.Pages.LoginPage">
     <StackLayout Orientation="Vertical">
         <Entry Placeholder="Username" Text="{Binding Username, Mode=TwoWay}" x:Name="Username"/>
-        <Entry Placeholder="Password" Text="{Binding Password, Mode=TwoWay}" x:Name="Password"/>
+        <Entry Placeholder="Password" Text="{Binding Password, Mode=TwoWay}" x:Name="Password" IsPassword="True"/>
         <Button Text="Login" Command="{Binding LoginCommand}"/>
         <Button Text="Fill Credentials" Clicked="Button_Clicked"/>
         <ProgressBar IsEnabled="True" IsVisible="{Binding IsDataLoading}"/>
