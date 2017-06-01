@@ -8,7 +8,10 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding Branch.Name}" />
+                        <StackLayout>
+                            <Label Text="{Binding BranchStatus.Branch.Name}" />
+                            <Label Text="{Binding Builds.Count}" />
+                        </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

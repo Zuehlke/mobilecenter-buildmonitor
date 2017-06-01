@@ -7,18 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using MobileCenterSdk.Services;
 
 namespace MobileCenter.BuildMonitor.ViewModels
 {
     class BranchListViewModel : ViewModelBase
     {
         // Fields
-        private ObservableCollection<McBranchStatus> _branchStatuses = new ObservableCollection<McBranchStatus>();
+        private ObservableCollection<ItemViewModel> _branchStatuses = new ObservableCollection<ItemViewModel>();
         private ICommand _refreshCommand;
         private McApp _app;
+        private BuildService _buildService;
 
         // Properties
-        public ObservableCollection<McBranchStatus> BranchStatuses
+        public ObservableCollection<ItemViewModel> BranchStatuses
         {
             get => _branchStatuses;
             set
@@ -30,6 +32,7 @@ namespace MobileCenter.BuildMonitor.ViewModels
         public BranchListViewModel(McApp app)
         {
             _app = app;
+            _buildService = ServiceLocator.MobileCenterService.MobileCenterClient.BuildService;
         }
 
         // Commands
@@ -46,10 +49,15 @@ namespace MobileCenter.BuildMonitor.ViewModels
 
             try
             {
-                var branches = await ServiceLocator.MobileCenterService.MobileCenterClient.BuildService.GetBranchesAsync(_app.Owner.Name, _app.Name);
+                var branches = await _buildService.GetBranchesAsync(_app.Owner.Name, _app.Name);
 
                 BranchStatuses.Clear();
-                branches.ForEach(BranchStatuses.Add);
+                branches.ForEach(i => BranchStatuses.Add(new ItemViewModel() { BranchStatus = i }));
+
+                foreach (var b in BranchStatuses)
+                {
+                    await UpdateBranchStatusAsync(b);
+                }
             }
             catch (Exception e)
             {
@@ -57,6 +65,32 @@ namespace MobileCenter.BuildMonitor.ViewModels
             }
 
             IsDataLoading = false;
+        }
+
+        private async Task UpdateBranchStatusAsync(ItemViewModel item)
+        {
+            var builds = await _buildService.GetBranchBuildsAsync(_app.Owner.Name, _app.Name, item.BranchStatus.Branch.Name);
+
+            item.Builds.Clear();
+            builds.ForEach(item.Builds.Add);
+        }
+
+        public class ItemViewModel : ViewModelBase
+        {
+            private McBranchStatus _branchStatus;
+            private ObservableCollection<McBuild> _builds = new ObservableCollection<McBuild>();
+
+            public McBranchStatus BranchStatus
+            {
+                get { return _branchStatus; }
+                set { SetProperty(ref _branchStatus, value); }
+            }
+
+            public ObservableCollection<McBuild> Builds
+            {
+                get { return _builds; }
+                set { SetProperty(ref _builds, value); }
+            }
         }
     }
 }
