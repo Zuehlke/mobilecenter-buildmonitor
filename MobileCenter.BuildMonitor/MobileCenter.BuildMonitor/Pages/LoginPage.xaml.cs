@@ -13,10 +13,15 @@ namespace MobileCenter.BuildMonitor.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
+        private LoginViewModel _viewModel;
         public LoginPage()
         {
             InitializeComponent();
-            BindingContext = new LoginViewModel();
+            BindingContext = _viewModel = new LoginViewModel();
+        }
+        protected async override void OnAppearing()
+        {
+            await _viewModel.ForwardIfLoggedIn();
         }
 
         private void Button_Clicked(object sender, EventArgs e)

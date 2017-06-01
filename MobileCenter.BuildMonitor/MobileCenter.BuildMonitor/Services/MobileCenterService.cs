@@ -44,8 +44,19 @@ namespace MobileCenter.BuildMonitor.Services
                     Scope = new List<string> { _tokenScope }
                 });
             
-            ServiceLocator.SettingsService.Token = tokenInfo.Token;
+            Settings.Token = tokenInfo.Token;
             MobileCenterClient.Credentials = new MobileCenterCredentials(tokenInfo.Token);
+        }
+        public bool IsUserLoggedIn
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(Settings.Token);
+            }
+        }
+        public void SetupTokenFromSettings()
+        {
+            MobileCenterClient.Credentials = new MobileCenterCredentials(Settings.Token);
         }
     }
 }

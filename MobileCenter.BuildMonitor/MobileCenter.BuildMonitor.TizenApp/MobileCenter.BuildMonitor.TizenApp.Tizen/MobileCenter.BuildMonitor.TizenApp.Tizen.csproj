@@ -61,6 +61,15 @@
       <Name>MobileCenter.BuildMonitor</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Plugin.Settings">
+      <HintPath>..\..\References\Xam.Plugins.Settings\tizen30\Plugin.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions">
+      <HintPath>..\..\References\Xam.Plugins.Settings\tizen30\Plugin.Settings.Abstractions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="..\..\MobileCenter.BuildMonitor.Shared\MobileCenter.BuildMonitor.Shared.projitems" Label="Shared" Condition="Exists('..\..\MobileCenter.BuildMonitor.Shared\MobileCenter.BuildMonitor.Shared.projitems')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
 		Other similar extension points exist, see Microsoft.Common.targets.

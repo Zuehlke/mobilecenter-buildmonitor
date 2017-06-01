@@ -54,8 +54,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceLocator.cs" />
+    <Compile Include="Services\ISettingsService.cs" />
     <Compile Include="Services\MobileCenterService.cs" />
-    <Compile Include="Services\SettingsService.cs" />
+    <Compile Include="Services\Settings.cs" />
     <Compile Include="TestCredentials.cs" />
     <Compile Include="ViewModels\AppListViewModel.cs" />
     <Compile Include="ViewModels\BranchListViewModel.cs" />

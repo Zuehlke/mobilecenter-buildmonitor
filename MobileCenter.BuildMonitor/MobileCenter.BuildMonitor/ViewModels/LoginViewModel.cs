@@ -57,5 +57,14 @@ namespace MobileCenter.BuildMonitor.ViewModels
                 SetProperty(ref _loginCommand, value);
             }
         }
+        public async Task ForwardIfLoggedIn()
+        {
+            if (ServiceLocator.MobileCenterService.IsUserLoggedIn)
+            {
+                ServiceLocator.MobileCenterService.SetupTokenFromSettings();
+                await App.Current.MainPage.Navigation.PushAsync(new AppListPage());
+                App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack.First());
+            }
+        }
     }
 }
