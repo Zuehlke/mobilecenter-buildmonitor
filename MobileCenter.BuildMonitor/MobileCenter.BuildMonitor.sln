@@ -11,8 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileCenter.BuildMonitor",
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MobileCenter.BuildMonitor.Shared", "MobileCenter.BuildMonitor.Shared\MobileCenter.BuildMonitor.Shared.shproj", "{E340986E-E4B3-49E3-A6C7-9D418F2456CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileCenter.BuildMonitor.Droid", "MobileCenter.BuildMonitor.Droid\MobileCenter.BuildMonitor.Droid.csproj", "{908472D1-B7B9-4107-AA3F-AFE46E7D6A2D}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		MobileCenter.BuildMonitor.Shared\MobileCenter.BuildMonitor.Shared.projitems*{908472d1-b7b9-4107-aa3f-afe46e7d6a2d}*SharedItemsImports = 4
 		MobileCenter.BuildMonitor.Shared\MobileCenter.BuildMonitor.Shared.projitems*{b15a40b1-5b17-4fa6-a80e-bbf9f7d577e6}*SharedItemsImports = 4
 		MobileCenter.BuildMonitor.Shared\MobileCenter.BuildMonitor.Shared.projitems*{e340986e-e4b3-49e3-a6c7-9d418f2456cd}*SharedItemsImports = 13
 	EndGlobalSection
@@ -33,6 +36,12 @@ Global
 		{D1D7195B-A93A-4C9D-88C5-8D49FAA24CC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1D7195B-A93A-4C9D-88C5-8D49FAA24CC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1D7195B-A93A-4C9D-88C5-8D49FAA24CC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{908472D1-B7B9-4107-AA3F-AFE46E7D6A2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{908472D1-B7B9-4107-AA3F-AFE46E7D6A2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{908472D1-B7B9-4107-AA3F-AFE46E7D6A2D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{908472D1-B7B9-4107-AA3F-AFE46E7D6A2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{908472D1-B7B9-4107-AA3F-AFE46E7D6A2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{908472D1-B7B9-4107-AA3F-AFE46E7D6A2D}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
