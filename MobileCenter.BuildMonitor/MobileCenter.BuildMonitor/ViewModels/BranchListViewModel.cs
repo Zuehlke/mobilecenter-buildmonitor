@@ -75,6 +75,7 @@ namespace MobileCenter.BuildMonitor.ViewModels
             builds.ForEach(item.Builds.Add);
         }
 
+        // Item subclass
         public class ItemViewModel : ViewModelBase
         {
             private McBranchStatus _branchStatus;

@@ -9,8 +9,44 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
-                            <Label Text="{Binding BranchStatus.Branch.Name}" />
-                            <Label Text="{Binding Builds.Count}" />
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Branch: " />
+                                <Label Text="{Binding BranchStatus.Branch.Name}" />
+                            </StackLayout>
+                            <ListView x:Name="MyItemview" ItemsSource="{Binding Builds}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <StackLayout Grid.Column="0" Orientation="Horizontal">
+                                                    <Label Text="Build: " />
+                                                    <Label Text="{Binding BuildNumber}" />
+                                                </StackLayout>
+
+                                                <StackLayout Grid.Column="1" Orientation="Horizontal">
+                                                    <Label Text="Status: " />
+                                                    <Label Text="{Binding Status}" />
+                                                </StackLayout>
+
+                                                <StackLayout Grid.Column="2" Orientation="Horizontal" HorizontalOptions="End">
+                                                    <Label Text="Time: " />
+                                                    <Label Text="{Binding FinishTime}" />
+                                                </StackLayout>
+                                            </Grid>
+                                            
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
