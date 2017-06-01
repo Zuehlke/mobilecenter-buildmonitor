@@ -9,7 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileCenterSdk", "MobileCe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileCenter.BuildMonitor", "MobileCenter.BuildMonitor\MobileCenter.BuildMonitor.csproj", "{D1D7195B-A93A-4C9D-88C5-8D49FAA24CC7}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MobileCenter.BuildMonitor.Shared", "MobileCenter.BuildMonitor.Shared\MobileCenter.BuildMonitor.Shared.shproj", "{E340986E-E4B3-49E3-A6C7-9D418F2456CD}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		MobileCenter.BuildMonitor.Shared\MobileCenter.BuildMonitor.Shared.projitems*{b15a40b1-5b17-4fa6-a80e-bbf9f7d577e6}*SharedItemsImports = 4
+		MobileCenter.BuildMonitor.Shared\MobileCenter.BuildMonitor.Shared.projitems*{e340986e-e4b3-49e3-a6c7-9d418f2456cd}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

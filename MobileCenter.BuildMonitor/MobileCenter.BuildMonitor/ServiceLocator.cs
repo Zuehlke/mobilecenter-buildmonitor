@@ -12,7 +12,6 @@ namespace MobileCenter.BuildMonitor
     public static class ServiceLocator
     {
         private static MobileCenterService _mobileCenterService;
-        private static SettingsService _settingsService;
         private static AppListViewModel _appListViewModel;
         
 
@@ -23,15 +22,7 @@ namespace MobileCenter.BuildMonitor
                 return _mobileCenterService ?? (_mobileCenterService = new MobileCenterService());
             }
         }
-
-        public static SettingsService SettingsService
-        {
-            get
-            {
-                return _settingsService ?? (_settingsService = new SettingsService());
-            }
-        }
-
+        
         public static AppListViewModel AppListViewModel
         {
             get
