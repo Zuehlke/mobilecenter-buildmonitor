@@ -22,10 +22,10 @@ namespace MobileCenter.BuildMonitor.Pages
             BindingContext = ViewModel = ServiceLocator.AppListViewModel;
         }
 
-        private async void MyListview_ItemTapped(object sender, ItemTappedEventArgs e)
+        private  void MyListview_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var app = e.Item as McApp;
-            await Navigation.PushAsync(new BranchListPage(app));
+             Navigation.PushAsync(new BranchListPage(app));
         }
     }
 }

@@ -46,7 +46,7 @@ namespace MobileCenter.BuildMonitor.ViewModels
 
             try
             {
-                var branches = await _app.GetBranchesAsync();
+                var branches = await ServiceLocator.MobileCenterService.MobileCenterClient.BuildService.GetBranchesAsync(_app.Owner.Name, _app.Name);
 
                 BranchStatuses.Clear();
                 branches.ForEach(BranchStatuses.Add);
