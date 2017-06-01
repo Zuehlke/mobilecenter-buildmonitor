@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MobileCenterSdk.Services;
+using System.Threading;
 
 namespace MobileCenter.BuildMonitor.ViewModels
 {
@@ -18,6 +19,8 @@ namespace MobileCenter.BuildMonitor.ViewModels
         private ICommand _refreshCommand;
         private McApp _app;
         private BuildService _buildService;
+
+        private CancellationTokenSource _loopCts = new CancellationTokenSource();
 
         // Properties
         public ObservableCollection<ItemViewModel> BranchStatuses
@@ -41,27 +44,39 @@ namespace MobileCenter.BuildMonitor.ViewModels
             get => _refreshCommand ?? (_refreshCommand = new Command(async () => await RefreshAsync()));
         }
 
+
         // Interactions
+        public void StopRefreshingAsync()
+        {
+            var current = Interlocked.Exchange(ref _loopCts, new CancellationTokenSource());
+            current.Cancel();
+        }
         public async Task RefreshAsync()
         {
             if (IsDataLoading) return;
             IsDataLoading = true;
 
-            try
+            var branches = await _buildService.GetBranchesAsync(_app.Owner.Name, _app.Name);
+
+            BranchStatuses.Clear();
+            branches.ForEach(i => BranchStatuses.Add(new ItemViewModel() { BranchStatus = i }));
+
+            while (!_loopCts.IsCancellationRequested)
             {
-                var branches = await _buildService.GetBranchesAsync(_app.Owner.Name, _app.Name);
-
-                BranchStatuses.Clear();
-                branches.ForEach(i => BranchStatuses.Add(new ItemViewModel() { BranchStatus = i }));
-
-                foreach (var b in BranchStatuses)
+                try
                 {
-                    await UpdateBranchStatusAsync(b);
+
+                    foreach (var b in BranchStatuses)
+                    {
+                        await UpdateBranchStatusAsync(b);
+                    }
                 }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Loading branches failed: {e.Message}");
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Loading branches failed: {e.Message}");
+                }
+
+                await Task.Delay(TimeSpan.FromSeconds(5));
             }
 
             IsDataLoading = false;
@@ -71,27 +86,14 @@ namespace MobileCenter.BuildMonitor.ViewModels
         {
             var builds = await _buildService.GetBranchBuildsAsync(_app.Owner.Name, _app.Name, item.BranchStatus.Branch.Name);
 
-            item.Builds.Clear();
-            builds.ForEach(item.Builds.Add);
+            item.Clear();
+            builds.Take(3).ToList().ForEach(item.Add);
         }
 
         // Item subclass
-        public class ItemViewModel : ViewModelBase
+        public class ItemViewModel : ObservableCollection<McBuild>
         {
-            private McBranchStatus _branchStatus;
-            private ObservableCollection<McBuild> _builds = new ObservableCollection<McBuild>();
-
-            public McBranchStatus BranchStatus
-            {
-                get { return _branchStatus; }
-                set { SetProperty(ref _branchStatus, value); }
-            }
-
-            public ObservableCollection<McBuild> Builds
-            {
-                get { return _builds; }
-                set { SetProperty(ref _builds, value); }
-            }
+            public McBranchStatus BranchStatus { get; set; }
         }
     }
 }

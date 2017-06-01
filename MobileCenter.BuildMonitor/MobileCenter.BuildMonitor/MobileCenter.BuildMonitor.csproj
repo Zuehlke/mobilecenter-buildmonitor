@@ -38,6 +38,8 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\BuildStatusColorConverter.cs" />
+    <Compile Include="Converters\BuildStatusTimeConverter.cs" />
     <Compile Include="Mvvm\Command.cs" />
     <Compile Include="Mvvm\ViewModelBase.cs" />
     <Compile Include="App.cs" />

@@ -1,53 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:con="clr-namespace:MobileCenter.BuildMonitor.Converters"
              x:Class="MobileCenter.BuildMonitor.Pages.BranchListPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <con:BuildStatusColorConverter x:Key="BuildStatusColorConverter" />
+            <con:BuildStatusTimeConverter x:Key="BuildStatusTimeConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <StackLayout>
         <Button Command="{Binding RefreshCommand}" Text="Refresh" />
-        <ListView x:Name="MyListview" ItemsSource="{Binding BranchStatuses}">
+        <ListView x:Name="MyListview" ItemsSource="{Binding BranchStatuses}" IsGroupingEnabled="True">
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <Label Text="Branch: " FontSize="Large" />
+                            <Label Text="{Binding BranchStatus.Branch.Name}" FontSize="Large" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Branch: " />
-                                <Label Text="{Binding BranchStatus.Branch.Name}" />
+                        <Grid BackgroundColor="{Binding Result, Converter={StaticResource BuildStatusColorConverter}}" Padding="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout Grid.Column="0" Orientation="Horizontal">
+                                <Label TextColor="White" Text="Build: " />
+                                <Label TextColor="White" Text="{Binding BuildNumber}" />
                             </StackLayout>
-                            <ListView x:Name="MyItemview" ItemsSource="{Binding Builds}">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <ViewCell>
-                                            <Grid>
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition />
-                                                    <RowDefinition Height="Auto" />
-                                                </Grid.RowDefinitions>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition />
-                                                    <ColumnDefinition Width="Auto" />
-                                                </Grid.ColumnDefinitions>
 
-                                                <StackLayout Grid.Column="0" Orientation="Horizontal">
-                                                    <Label Text="Build: " />
-                                                    <Label Text="{Binding BuildNumber}" />
-                                                </StackLayout>
+                            <StackLayout Grid.Column="1" Orientation="Horizontal">
+                                <Label TextColor="White" Text="Status: " />
+                                <Label TextColor="White" Text="{Binding Status}" />
+                                <Label TextColor="White" Text="/" />
+                                <Label TextColor="White" Text="{Binding Result}" />
+                            </StackLayout>
 
-                                                <StackLayout Grid.Column="1" Orientation="Horizontal">
-                                                    <Label Text="Status: " />
-                                                    <Label Text="{Binding Status}" />
-                                                </StackLayout>
-
-                                                <StackLayout Grid.Column="2" Orientation="Horizontal" HorizontalOptions="End">
-                                                    <Label Text="Time: " />
-                                                    <Label Text="{Binding FinishTime}" />
-                                                </StackLayout>
-                                            </Grid>
-                                            
-                                        </ViewCell>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
-                        </StackLayout>
+                            <StackLayout Grid.Column="2" Orientation="Horizontal" HorizontalOptions="End">
+                                <Label TextColor="White" Text="{Binding FinishTime, Converter={StaticResource BuildStatusTimeConverter}}" />
+                            </StackLayout>
+                        </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

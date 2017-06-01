@@ -21,5 +21,12 @@ namespace MobileCenter.BuildMonitor.Pages
             InitializeComponent();
             BindingContext = ViewModel = new BranchListViewModel(app);
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var t = ViewModel.RefreshAsync();
+        }
     }
 }

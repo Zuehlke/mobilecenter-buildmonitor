@@ -22,6 +22,13 @@ namespace MobileCenter.BuildMonitor.Pages
             BindingContext = ViewModel = ServiceLocator.AppListViewModel;
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var t = ViewModel.RefreshAsync();
+        }
+
         private  void MyListview_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var app = e.Item as McApp;
